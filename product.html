@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm - NEON//MARKET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">N/M</span>
+        <span>
+          <strong>NEON//MARKET</strong>
+          <small>product detail</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="/">Cửa hàng</a>
+        <a href="/account">Tài khoản</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-pill" href="/login">Đăng nhập</a>
+        <a class="cart-pill" href="/?openCart=1"><span>Giỏ hàng</span><strong id="cartCount">0</strong></a>
+      </div>
+    </header>
+
+    <main class="product-detail-shell" id="productDetail">
+      <section class="empty-state">Đang tải sản phẩm...</section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="product.js"></script>
+  </body>
+</html>

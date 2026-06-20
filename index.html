@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEON//MARKET - Cyber Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark">N/M</span>
+        <span>
+          <strong>NEON//MARKET</strong>
+          <small>live cyber store</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#featuredSections">Game hot</a>
+        <a href="#products">Tất cả</a>
+        <a href="#deals">Deal nhanh</a>
+        <a href="#checkout">Thanh toán</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-pill" id="accountLink" href="/login">Đăng nhập</a>
+        <button class="cart-pill" id="openCart" type="button" aria-label="Mở giỏ hàng">
+          <span>Giỏ hàng</span>
+          <strong id="cartCount">0</strong>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Game keys / accounts / laptops</p>
+          <h1>Kho game bản quyền, tài khoản xịn và laptop chiến game cực cháy.</h1>
+          <p class="hero-text">
+            Mua nhanh như shop thật: catalog từ backend, giỏ hàng realtime, checkout lưu đơn, admin quản lý tồn kho và giao diện cyber nổi bật hơn kiểu marketplace game phổ biến.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#featuredSections">Xem game hot</a>
+            <button class="ghost-btn" id="randomDeal" type="button">Kích hoạt deal</button>
+          </div>
+          <div class="live-strip" aria-label="Thông tin vận hành">
+            <span><b id="onlineUsers">247</b> người đang săn deal</span>
+            <span><b>30 phút</b> bàn giao digital</span>
+            <span><b>SQLite</b> lưu đơn thật</span>
+          </div>
+        </div>
+        <div class="hero-visual game-vault" aria-label="Sản phẩm nổi bật">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="vault-frame">
+            <div class="vault-topline">
+              <span>NEON DROP</span>
+              <strong>-72%</strong>
+            </div>
+            <div class="cover-stack">
+              <article class="cover-card cover-main">
+                <span>STEAM</span>
+                <strong>Game Pack</strong>
+              </article>
+              <article class="cover-card cover-side">
+                <span>RTX</span>
+                <strong>Laptop</strong>
+              </article>
+              <article class="cover-card cover-side alt">
+                <span>ACC</span>
+                <strong>Rank đẹp</strong>
+              </article>
+            </div>
+            <div class="vault-metrics">
+              <div><span>Đơn hôm nay</span><b>128</b></div>
+              <div><span>Giao thành công</span><b>99.2%</b></div>
+              <div><span>Giá từ</span><b>399k</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="market-nav" aria-label="Danh mục nổi bật">
+        <div class="brand-cloud">
+          <span>Steam</span>
+          <span>Xbox</span>
+          <span>Game Pass</span>
+          <span>ROG</span>
+          <span>Legion</span>
+          <span>Discord</span>
+        </div>
+        <div class="quick-categories">
+          <button type="button" data-category-jump="game-account">Tài khoản game</button>
+          <button type="button" data-category-jump="gaming">Game & phụ kiện</button>
+          <button type="button" data-category-jump="laptop">Laptop gaming</button>
+          <button type="button" data-category-jump="accessory">Phụ kiện</button>
+        </div>
+        <div class="hot-searches">
+          <span>Tìm nhiều:</span>
+          <button type="button" data-search-jump="Steam">Steam</button>
+          <button type="button" data-search-jump="Laptop">Laptop</button>
+          <button type="button" data-search-jump="Game Pass">Game Pass</button>
+          <button type="button" data-search-jump="Valorant">Valorant</button>
+        </div>
+      </section>
+
+      <section class="storefront-sections" id="featuredSections" aria-live="polite"></section>
+
+      <section class="toolbar" id="products">
+        <div>
+          <p class="eyebrow">Full catalog</p>
+          <h2>Tất cả sản phẩm</h2>
+        </div>
+        <div class="controls">
+          <label class="search-box">
+            <span>Tìm</span>
+            <input id="searchInput" type="search" placeholder="Tai nghe, drone, keyboard..." />
+          </label>
+          <label class="select-box">
+            <span>Danh mục</span>
+            <select id="categoryFilter">
+              <option value="all">Tất cả</option>
+              <option value="wearable">Wearable</option>
+              <option value="desk">Góc làm việc</option>
+              <option value="gaming">Gaming</option>
+              <option value="game-account">Tài khoản game</option>
+              <option value="laptop">Laptop</option>
+              <option value="fashion">Techwear</option>
+              <option value="audio">Âm thanh</option>
+              <option value="smart-home">Smart home</option>
+              <option value="mobility">Di chuyển</option>
+              <option value="security">Bảo mật</option>
+              <option value="accessory">Phụ kiện</option>
+            </select>
+          </label>
+          <label class="range-box">
+            <span>Giá tối đa: <b id="priceValue">30.000.000d</b></span>
+            <input id="priceRange" type="range" min="500000" max="30000000" step="500000" value="30000000" />
+          </label>
+        </div>
+      </section>
+
+      <section class="deal-band" id="deals">
+        <div>
+          <span class="pulse-dot"></span>
+          Deal hệ thống đang chạy: giảm thêm <b id="dealPercent">12%</b> cho đơn từ 5.000.000d
+        </div>
+        <small id="dealTimer">00:14:59</small>
+      </section>
+
+      <section class="product-grid" id="productGrid" aria-live="polite"></section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="closeCart"></div>
+      <section class="drawer-panel" id="checkout" aria-label="Giỏ hàng">
+        <div class="drawer-head">
+          <div>
+            <p class="eyebrow">Realtime cart</p>
+            <h2>Giỏ hàng</h2>
+          </div>
+          <button class="icon-btn" id="closeCartBtn" type="button" aria-label="Đóng giỏ hàng">x</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty">
+          <strong>Chưa có sản phẩm.</strong>
+          <span>Thêm một món để thấy tổng tiền cập nhật ngay.</span>
+        </div>
+        <div class="summary">
+          <div><span>Tạm tính</span><b id="subtotal">0d</b></div>
+          <div><span>Giảm deal</span><b id="discount">0d</b></div>
+          <div><span>Vận chuyển</span><b id="shipping">0d</b></div>
+          <div class="total"><span>Tổng</span><b id="total">0d</b></div>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+          <label>
+            Tên người nhận
+            <input name="name" type="text" autocomplete="name" required minlength="2" placeholder="Nguyễn Văn A" />
+          </label>
+          <label>
+            Số điện thoại
+            <input name="phone" type="tel" autocomplete="tel" required minlength="8" placeholder="090..." />
+          </label>
+          <label>
+            Địa chỉ giao hàng
+            <input name="address" type="text" autocomplete="street-address" required minlength="10" placeholder="Số nhà, đường, quận/huyện..." />
+          </label>
+          <label>
+            Thanh toán
+            <select name="paymentMethod">
+              <option value="cod">COD khi nhận hàng</option>
+              <option value="bank">Chuyển khoản ngân hàng</option>
+              <option value="wallet">Ví điện tử</option>
+            </select>
+          </label>
+          <button class="checkout-btn" id="checkoutBtn" type="submit">Đặt hàng thật vào database</button>
+        </form>
+      </section>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

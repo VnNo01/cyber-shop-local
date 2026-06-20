@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - NEON//MARKET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">N/M</span>
+        <span>
+          <strong>NEON//MARKET</strong>
+          <small>operator console</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="/">Cửa hàng</a>
+        <a href="/account">Tài khoản</a>
+      </nav>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-head">
+        <p class="eyebrow">Admin console</p>
+        <h1>Quản trị cửa hàng</h1>
+        <p class="hero-text">Theo dõi doanh thu, đơn hàng và tồn kho đang được lưu trong SQLite backend.</p>
+      </section>
+
+      <section class="admin-summary" id="adminSummary"></section>
+      <section class="admin-section" id="ordersSection"></section>
+      <section class="admin-section" id="productsSection"></section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="admin.js"></script>
+  </body>
+</html>
