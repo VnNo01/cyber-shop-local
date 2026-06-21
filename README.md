@@ -1,28 +1,41 @@
 # NEON//MARKET
 
-Trang web bán hàng local phong cách cyber/cyborg với:
+NEON//MARKET là website bán hàng local phong cách cyber/cyborg. Dự án có frontend HTML/CSS/JavaScript, backend Python thuần, database SQLite, giỏ hàng, checkout, tài khoản khách hàng và trang admin.
 
-- Lọc sản phẩm real time theo tên, danh mục và giá.
-- Danh mục hàng đa dạng: laptop, tài khoản game, gaming, techwear, âm thanh, smart home, wearable, di chuyển, bảo mật và phụ kiện.
-- Giỏ hàng cập nhật tức thì, lưu bằng `localStorage`.
-- Deal giảm giá, đếm ngược và thanh toán mô phỏng.
-- Checkout có tên người nhận, số điện thoại, địa chỉ, phương thức thanh toán.
-- Backend lưu đơn hàng vào SQLite và trang tài khoản hiển thị lịch sử đơn.
-- Catalog sản phẩm được seed vào SQLite từ `products.json`, frontend đọc qua `/api/products`.
-- Server tự kiểm giá/tồn kho khi đặt hàng và trừ kho sau khi tạo đơn.
-- User đầu tiên đăng ký sẽ là `admin` và có thể mở `/admin` để xem doanh thu, đơn hàng, tồn kho, đổi trạng thái đơn, chỉnh stock/giá.
+## Tính năng chính
+
+- Catalog sản phẩm đọc từ API `/api/products`, seed từ `products.json` vào SQLite.
+- Lọc sản phẩm realtime theo tên, danh mục và giá.
+- Giỏ hàng lưu bằng `localStorage`, checkout có thông tin nhận hàng và phương thức thanh toán.
+- Backend kiểm tra giá/tồn kho khi đặt hàng, tạo đơn và trừ tồn kho.
+- Đăng ký/đăng nhập local; user đầu tiên tự động là `admin`.
+- Admin console xem doanh thu, đơn hàng, tồn kho, đổi trạng thái đơn, chỉnh stock/giá.
+- OAuth Google/Facebook/GitHub có chế độ demo; có thể cấu hình app thật bằng biến môi trường.
 - Giao diện responsive cho desktop và mobile.
 
-## Chạy local có backend
+## Cấu trúc
 
-Chạy server Python để có cả frontend, backend API và database SQLite:
+```text
+.
+├── server.py              # Backend HTTP + SQLite + auth + API
+├── products.json          # Catalog seed ban đầu
+├── smoke_test.py          # Kiểm thử nhanh API và luồng đặt hàng
+├── index.html / app.js    # Trang cửa hàng
+├── product.html / product.js
+├── login.html / auth.js / auth.css
+├── account.html / account.js
+├── admin.html / admin.js
+└── styles.css
+```
+
+## Chạy local
 
 ```powershell
 cd cyber-shop-local
 python server.py
 ```
 
-Sau đó mở:
+Mở trình duyệt tại:
 
 ```text
 http://localhost:5173
@@ -31,12 +44,11 @@ http://localhost:5173
 Các trang chính:
 
 - Cửa hàng: `http://localhost:5173`
-- Chi tiết sản phẩm: bấm `Chi tiết` trên từng sản phẩm
 - Đăng nhập/đăng ký: `http://localhost:5173/login`
 - Hồ sơ tài khoản: `http://localhost:5173/account`
 - Admin console: `http://localhost:5173/admin`
 
-Tài khoản và đơn hàng được lưu trong file `neon_market.db`.
+Database local được tạo tại `neon_market.db` và đã được ignore khỏi Git.
 
 ## Kiểm thử nhanh
 
@@ -46,11 +58,11 @@ Khi server đang chạy, mở terminal khác:
 python smoke_test.py
 ```
 
-Script này kiểm tra catalog, đăng ký admin, tạo đơn, trừ tồn kho, admin dashboard, đổi trạng thái đơn rồi tự reset dữ liệu test.
+Script kiểm tra catalog, đăng ký admin, tạo đơn, trừ tồn kho, admin dashboard, đổi trạng thái đơn rồi tự reset dữ liệu test.
 
-## OAuth Google/Facebook/GitHub
+## OAuth thật
 
-Các nút OAuth chạy được ngay ở chế độ demo nếu chưa cấu hình app thật. Khi muốn dùng OAuth thật, tạo app trong từng provider và đặt biến môi trường trước khi chạy:
+Nếu muốn dùng OAuth provider thật, tạo app trong từng provider rồi đặt biến môi trường trước khi chạy server:
 
 ```powershell
 $env:GITHUB_CLIENT_ID="..."
@@ -62,10 +74,15 @@ $env:FACEBOOK_CLIENT_SECRET="..."
 python server.py
 ```
 
-Callback URL cần khai báo với provider:
+Callback URL:
 
 ```text
 http://localhost:5173/auth/github/callback
 http://localhost:5173/auth/google/callback
 http://localhost:5173/auth/facebook/callback
 ```
+
+## Ghi chú
+
+- `SESSION_SECRET` mặc định chỉ phù hợp local dev; khi demo nghiêm túc nên đặt biến môi trường riêng.
+- Không commit `neon_market.db`, `.env` hoặc secret OAuth thật.
